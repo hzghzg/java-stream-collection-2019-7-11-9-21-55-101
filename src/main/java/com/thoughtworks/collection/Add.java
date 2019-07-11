@@ -49,11 +49,11 @@ public class Add {
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().distinct().filter(item->item%2==0).collect(Collectors.toList());
     }
 
 //    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-//        throw new NotImplementedException();
+//        throw new NotImplementedException();;
 //    }
 
 //    public List<Integer> getProcessedList(List<Integer> arrayList) {
