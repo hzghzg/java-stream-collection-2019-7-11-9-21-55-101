@@ -4,6 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CollectionOperator {
     public List<Integer> getListByInterval(int left, int right) {
@@ -23,7 +24,18 @@ public class CollectionOperator {
     }
 
     public List<Integer> getEvenListByIntervals(int left, int right) {
-        throw new NotImplementedException();
+        List<Integer> input=new ArrayList<>();
+        if(left>right){
+            for (int i = left; i>=right; i--) {
+                input.add(i);
+            }
+        }
+        else{
+            for (int i = left; i <=right; i++) {
+                input.add(i);
+            }
+        }
+        return input.stream().filter(item->item%2==0).collect(Collectors.toList());
     }
 
     public List<Integer> popEvenElments(int[] array) {
