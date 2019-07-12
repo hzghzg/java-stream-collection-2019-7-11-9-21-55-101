@@ -3,12 +3,14 @@ package com.thoughtworks.collection;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
-        if(leftBorder>rightBorder){
+        /*if(leftBorder>rightBorder){
             int m=rightBorder;
             rightBorder=leftBorder;
             leftBorder=m;
@@ -17,7 +19,8 @@ public class Add {
         for (int i = leftBorder; i <= rightBorder; i++) {
             input.add(i);
         }
-        return input.stream().filter(item->item%2==0).mapToInt(item->item).sum();
+        return input.stream().filter(item->item%2==0).mapToInt(item->item).sum();*/
+        return IntStream.rangeClosed(Math.min(leftBorder,rightBorder),Math.max(leftBorder,rightBorder)).boxed().collect(Collectors.toList()).stream().filter(item->item%2==0).mapToInt(item->item).sum();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
